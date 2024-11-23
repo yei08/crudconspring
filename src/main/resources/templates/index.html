@@ -24,5 +24,36 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <b>TELEFONO:</B><span th:text="${alguien.telefono}"></span><br>
         <b>ESTADO:</B><span th:text="${alguien.estado}"></span><br>
         <b>FECHA DE REGISTRO:</B><span th:text="${fecha_registro}"></span><br>
+        <hr>
+        <h4>LISTA DE PERSONAS</h4>
+        <hr>
+        <div th:if="${usuarios != null and !usuarios.empty}">
+            <table border="1">
+                <tr>
+                    <th>ID</th>
+                    <th>PASSWORD</th>
+                    <th>NOMBRE</th>
+                    <th>APELLIDOS</th>
+                    <th>ROL</th>
+                    <th>EMAIL</th>
+                    <th>TELEFONO</th>
+                    <th>ESTADO</th>
+                    <th>FECHA DE REGISTRO</th>
+                </tr>
+                <tr th:each="u: ${usuarios}">
+                <td th:text="${u.id}"></td> 
+                <td th:text="${u.password}"></td> 
+                <td th:text="${u.nombre}"></td> 
+                <td th:text="${u.apellidos}"></td> 
+                <td th:text="${u.rol}"></td> 
+                <td th:text="${u.email}"></td> 
+                <td th:text="${u.telefono}"></td> 
+                <td th:text="${u.estado}"></td> 
+                <td th:text="${u.fecha_registro}"></td>
+            </tr>
+        </div>
+        <div th:if="${usuarios == null or usuarios.empty}">
+            La lista de usuarios esta vacia
+        </div>
     </body>
 </html>
