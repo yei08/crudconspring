@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>pagina de inicio</h1>
+        <p th:text="${mensaje}"></p>
+        <p th:text="${dato}"></p>
+        <hr>
+        <b>ID:</B><span th:text="${alguien.id}"></span><br>
+        <b>password:</B><span th:text="${alguien.password}"></span><br>
+        <b>NOMBRE:</B><span th:text="${alguien.nombre}"></span><br>
+        <b>APELLIDOS:</B><span th:text="${alguien.apellidos}"></span><br>
+        <b>ROL:</B><span th:text="${alguien.rol}"></span><br>
+        <b>EMAIL:</B><span th:text="${alguien.email}"></span><br>
+        <b>TELEFONO:</B><span th:text="${alguien.telefono}"></span><br>
+        <b>ESTADO:</B><span th:text="${alguien.estado}"></span><br>
+        <b>FECHA DE REGISTRO:</B><span th:text="${fecha_registro}"></span><br>
+    </body>
+</html>
