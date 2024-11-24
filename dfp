@@ -1,0 +1,110 @@
+[33mcommit 2d355ded418a496e0e779525ea83c9ff7d3f8e73[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: yeifer alcala <yeiferalcala23@gmail.com>
+Date:   Sat Nov 23 01:06:13 2024 -0500
+
+    commit hasta la lista(guia 7)
+
+[1mdiff --git a/src/main/java/com/desarrolloWeb/crud/ControladorInicio.java b/src/main/java/com/desarrolloWeb/crud/ControladorInicio.java[m
+[1mindex 2d161fb..bedd1d9 100644[m
+[1m--- a/src/main/java/com/desarrolloWeb/crud/ControladorInicio.java[m
+[1m+++ b/src/main/java/com/desarrolloWeb/crud/ControladorInicio.java[m
+[36m@@ -3,12 +3,14 @@[m
+  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template[m
+  */[m
+ package com.desarrolloWeb.crud;[m
+[32m+[m[32mimport com.desarrolloWeb.crud.modelo.Usuario;[m
+[32m+[m[32mimport java.util.Arrays;[m
+[32m+[m[32mimport java.util.List;[m
+ import lombok.extern.slf4j.Slf4j;[m
+ import org.springframework.beans.factory.annotation.Value;[m
+ import org.springframework.stereotype.Controller;[m
+ import org.springframework.ui.Model;[m
+ import org.springframework.web.bind.annotation.GetMapping;[m
+[31m-import com.desarrolloWeb.crud.modelo.Usuario;[m
+ /**[m
+  *[m
+  * @author JEIFER ALCALA[m
+[36m@@ -25,7 +27,7 @@[m [mpublic class ControladorInicio {[m
+         modelo.addAttribute("dato", dato);[m
+         Usuario u = new Usuario();[m
+         u.setId("123");[m
+[31m-        u.setPassword(dato);[m
+[32m+[m[32m        u.setPassword("4234234");[m
+         u.setNombre("yeifer");[m
+         u.setApellidos("Alcalá Mestre");[m
+         u.setRol("estudiante");[m
+[36m@@ -33,8 +35,32 @@[m [mpublic class ControladorInicio {[m
+         u.setTelefono("4234252523");[m
+         u.setEstado("activo");[m
+         u.setFecha_registro("2020/03/30");[m
+[31m-        modelo.addAttribute("alguien",u);[m
+[32m+[m[32m        modelo.addAttribute("alguien", u);[m
+[32m+[m[41m       [m
+[32m+[m[32m        Usuario u1 = new Usuario();[m
+[32m+[m[32m        u1.setId("1234");[m
+[32m+[m[32m        u1.setPassword("4234234");[m
+[32m+[m[32m        u1.setNombre("jonh jairo");[m
+[32m+[m[32m        u1.setApellidos("peñaralta rodriguez");[m
+[32m+[m[32m        u1.setRol("estudiante");[m
+[32m+[m[32m        u1.setEmail("john.com");[m
+[32m+[m[32m        u1.setTelefono("4234252523");[m
+[32m+[m[32m        u1.setEstado("activo");[m
+[32m+[m[32m        u1.setFecha_registro("2020/03/30");[m
+[32m+[m[41m      [m
+         [m
+[32m+[m[32m        Usuario u2 = new Usuario();[m
+[32m+[m[32m        u2.setId("1236");[m
+[32m+[m[32m        u2.setPassword("4234234");[m
+[32m+[m[32m        u2.setNombre("johanis");[m
+[32m+[m[32m        u2.setApellidos("Mestre");[m
+[32m+[m[32m        u2.setRol("estudiante");[m
+[32m+[m[32m        u2.setEmail("johanis.com");[m
+[32m+[m[32m        u2.setTelefono("4234252523");[m
+[32m+[m[32m        u2.setEstado("activo");[m
+[32m+[m[32m        u2.setFecha_registro("2020/03/30");[m
+[32m+[m[32m        List<Usuario> listaUsuarios = Arrays.asList(u1, u2);[m
+[32m+[m[32m        modelo.addAttribute("usuarios",listaUsuarios);[m
+         log.info("ejecutando el controlador inicio MVC");[m
+         return "index";[m
+     }[m
+[1mdiff --git a/src/main/resources/templates/index.html b/src/main/resources/templates/index.html[m
+[1mindex 42a6ef8..61c2587 100644[m
+[1m--- a/src/main/resources/templates/index.html[m
+[1m+++ b/src/main/resources/templates/index.html[m
+[36m@@ -24,5 +24,36 @@[m [mClick nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp[m
+         <b>TELEFONO:</B><span th:text="${alguien.telefono}"></span><br>[m
+         <b>ESTADO:</B><span th:text="${alguien.estado}"></span><br>[m
+         <b>FECHA DE REGISTRO:</B><span th:text="${fecha_registro}"></span><br>[m
+[32m+[m[32m        <hr>[m
+[32m+[m[32m        <h4>LISTA DE PERSONAS</h4>[m
+[32m+[m[32m        <hr>[m
+[32m+[m[32m        <div th:if="${usuarios != null and !usuarios.empty}">[m
+[32m+[m[32m            <table border="1">[m
+[32m+[m[32m                <tr>[m
+[32m+[m[32m                    <th>ID</th>[m
+[32m+[m[32m                    <th>PASSWORD</th>[m
+[32m+[m[32m                    <th>NOMBRE</th>[m
+[32m+[m[32m                    <th>APELLIDOS</th>[m
+[32m+[m[32m                    <th>ROL</th>[m
+[32m+[m[32m                    <th>EMAIL</th>[m
+[32m+[m[32m                    <th>TELEFONO</th>[m
+[32m+[m[32m                    <th>ESTADO</th>[m
+[32m+[m[32m                    <th>FECHA DE REGISTRO</th>[m
+[32m+[m[32m                </tr>[m
+[32m+[m[32m                <tr th:each="u: ${usuarios}">[m
+[32m+[m[32m                <td th:text="${u.id}"></td>[m[41m [m
+[32m+[m[32m                <td th:text="${u.password}"></td>[m[41m [m
+[32m+[m[32m                <td th:text="${u.nombre}"></td>[m[41m [m
+[32m+[m[32m                <td th:text="${u.apellidos}"></td>[m[41m [m
+[32m+[m[32m                <td th:text="${u.rol}"></td>[m[41m [m
+[32m+[m[32m                <td th:text="${u.email}"></td>[m[41m [m
+[32m+[m[32m                <td th:text="${u.telefono}"></td>[m[41m [m
+[32m+[m[32m                <td th:text="${u.estado}"></td>[m[41m [m
+[32m+[m[32m                <td th:text="${u.fecha_registro}"></td>[m
+[32m+[m[32m            </tr>[m
+[32m+[m[32m        </div>[m
+[32m+[m[32m        <div th:if="${usuarios == null or usuarios.empty}">[m
+[32m+[m[32m            La lista de usuarios esta vacia[m
+[32m+[m[32m        </div>[m
+     </body>[m
+ </html>[m

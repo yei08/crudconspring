@@ -4,12 +4,19 @@
  */
 package com.desarrolloWeb.crud.modelo;
 import lombok.Data;
+import java.io.Serializable;
+import jakarta.persistence.*;
+
 /**
  *
  * @author JEIFER ALCALA
  */
+@Entity
+@Table(name = "usuarios")
 @Data
-public class Usuario {
+public class Usuario implements Serializable {
+    private static final long serialVersionUID = 1L;
+    @Id
     private String id;
     private String password;
     private String nombre;

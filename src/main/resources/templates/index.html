@@ -11,24 +11,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h1>pagina de inicio</h1>
-        <p th:text="${mensaje}"></p>
-        <p th:text="${dato}"></p>
-        <hr>
-        <b>ID:</B><span th:text="${alguien.id}"></span><br>
-        <b>password:</B><span th:text="${alguien.password}"></span><br>
-        <b>NOMBRE:</B><span th:text="${alguien.nombre}"></span><br>
-        <b>APELLIDOS:</B><span th:text="${alguien.apellidos}"></span><br>
-        <b>ROL:</B><span th:text="${alguien.rol}"></span><br>
-        <b>EMAIL:</B><span th:text="${alguien.email}"></span><br>
-        <b>TELEFONO:</B><span th:text="${alguien.telefono}"></span><br>
-        <b>ESTADO:</B><span th:text="${alguien.estado}"></span><br>
-        <b>FECHA DE REGISTRO:</B><span th:text="${fecha_registro}"></span><br>
-        <hr>
-        <h4>LISTA DE PERSONAS</h4>
+        <h1>Lista de Usuarios</h1>
         <hr>
         <div th:if="${usuarios != null and !usuarios.empty}">
-            <table border="1">
+            <table border="1" th:each="u: ${usuarios}">
                 <tr>
                     <th>ID</th>
                     <th>PASSWORD</th>
@@ -40,20 +26,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <th>ESTADO</th>
                     <th>FECHA DE REGISTRO</th>
                 </tr>
-                <tr th:each="u: ${usuarios}">
-                <td th:text="${u.id}"></td> 
-                <td th:text="${u.password}"></td> 
-                <td th:text="${u.nombre}"></td> 
-                <td th:text="${u.apellidos}"></td> 
-                <td th:text="${u.rol}"></td> 
-                <td th:text="${u.email}"></td> 
-                <td th:text="${u.telefono}"></td> 
-                <td th:text="${u.estado}"></td> 
-                <td th:text="${u.fecha_registro}"></td>
-            </tr>
-        </div>
-        <div th:if="${usuarios == null or usuarios.empty}">
-            La lista de usuarios esta vacia
+                <tr>
+                    <td th:text="${u.id}"></td>
+                    <td th:text="${u.password}"></td>
+                    <td th:text="${u.nombre}"></td>
+                    <td th:text="${u.apellidos}"></td>
+                    <td th:text="${u.rol}"></td>
+                    <td th:text="${u.email}"></td>
+                    <td th:text="${u.telefono}"></td>
+                    <td th:text="${u.estado}"></td>
+                    <td th:text="${u.fecha_registro}"></td>
+            </table>
+            <div th:if="${usuarios == null or usuarios.empty}">
+                La lista de usuarios esta vacia
+            </div>
+
         </div>
     </body>
 </html>
