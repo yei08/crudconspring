@@ -4,14 +4,19 @@
  */
 package com.desarrolloWeb.crud.controladores;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+
 import com.desarrolloWeb.crud.modelo.Usuario;
-import com.desarrolloWeb.crud.IUsuarioCrud;
-import java.util.List;
+import com.desarrolloWeb.crud.servicio.IUsuarioServicio;
+
 import lombok.extern.slf4j.Slf4j;
+
 
 /**
  *
@@ -21,13 +26,25 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class ControladorInicio {
      @Autowired
-      IUsuarioCrud iUsuarioCrud;
+     // IUsuarioCrud iUsuarioCrud;
+     IUsuarioServicio userServicio;
     @GetMapping("/")
     public String inicio(Model modelo) {
-        List<Usuario> listaUsuarios = (List<Usuario>) iUsuarioCrud.findAll();
+        // List<Usuario> listaUsuarios = (List<Usuario>) iUsuarioCrud.findAll();
+        List<Usuario> listaUsuarios = (List<Usuario>) userServicio.listarUsuarios();
         modelo.addAttribute("usuarios", listaUsuarios);
         log.info("ejecutando el controlador inicio MVC");
         return "index";
     }
 
+    @GetMapping("/agregar")
+    public String agregar(Usuario usuario) {
+        return "modificar";
+    }
+
+    @PostMapping("/guardar")
+    public String guardar(Usuario usuario) {
+        userServicio.guardar(usuario);
+        return "redirect:/";
+    }
 }

@@ -17,7 +17,8 @@ import jakarta.persistence.*;
 public class Usuario implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String password;
     private String nombre;
     private String apellidos;
