@@ -4,7 +4,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.desarrolloWeb.crud.modelo.Usuario;
 
-public interface IUsuarioCrud extends CrudRepository<Usuario, String> {
+public interface IUsuarioCrud extends CrudRepository<Usuario, Integer> {
 
-    
+
 }

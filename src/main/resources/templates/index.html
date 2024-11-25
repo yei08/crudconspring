@@ -25,8 +25,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <th>TELEFONO</th>
                     <th>ESTADO</th>
                     <th>FECHA DE REGISTRO</th>
+                    <th>EDITAR</th>
                 </tr>
-                <tr>
+             
                     <tr th:each="u : ${usuarios}">
                     <td th:text="${u.id}"></td>
                     <td th:text="${u.password}"></td>
@@ -37,7 +38,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <td th:text="${u.telefono}"></td>
                     <td th:text="${u.estado}"></td>
                     <td th:text="${u.fecha_registro}"></td>
-                    </tr>
+                    <td><a th:href="@{/editar/}+${u.id}" th:text="EDITAR"></a></td>
+               
+            </tr>
             </table>
             <div th:if="${usuarios == null or usuarios.empty}">
                 La lista de usuarios esta vacia

@@ -47,4 +47,12 @@ public class ControladorInicio {
         userServicio.guardar(usuario);
         return "redirect:/";
     }
+
+    @GetMapping("/editar/{id}")
+    public String editar(Usuario usuario, Model modelo) {
+        log.info("invocando el metodo editar");
+        usuario = userServicio.buscar(usuario);
+        modelo.addAttribute("usuario", usuario);
+        return "modificar";
+    }
 }
