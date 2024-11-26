@@ -26,6 +26,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <th>ESTADO</th>
                     <th>FECHA DE REGISTRO</th>
                     <th>EDITAR</th>
+                    <th>ELIMINAR</th>
                 </tr>
              
                     <tr th:each="u : ${usuarios}">
@@ -39,7 +40,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <td th:text="${u.estado}"></td>
                     <td th:text="${u.fecha_registro}"></td>
                     <td><a th:href="@{/editar/}+${u.id}" th:text="EDITAR"></a></td>
-               
+                    <td><a th:href="@{/eliminar/}+${u.id}" th:text="ELIMINAR"></a></td>
             </tr>
             </table>
             <div th:if="${usuarios == null or usuarios.empty}">
