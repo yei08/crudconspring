@@ -60,5 +60,6 @@ public class ControladorInicio {
         userServicio.eliminar(usuario);
         return "redirect:/";
     }
+
     
 }
