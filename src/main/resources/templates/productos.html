@@ -11,7 +11,7 @@
     <h1>Lista de Productos</h1>
     <hr>
 
-    <a th:href="@{/productos/agregar}" class="btn">Agregar Producto</a> 
+    <button onclick="window.location.href='/productos/agregar'" style="background-color: gold; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;">Agregar Producto</button>
     <div th:if="${Productos != null and !Productos.empty}"> 
         <table border="1">
             <tr>
@@ -36,6 +36,9 @@
                 <td><a th:href="@{/productos/eliminar/}+${p.id}" th:text="ELIMINAR"></a></td>
             </tr>
         </table>
+        <button onclick="window.location.href='/' " style="background-color: gold; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;"> 
+            Atrás
+          </button>
     </div>
     <div th:if="${Productos == null or Productos.empty}"> 
         La lista de productos está vacía

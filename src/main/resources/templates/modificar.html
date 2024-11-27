@@ -14,7 +14,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
 <body>
     <h1>datos de usuario</h1>
-    <a href="@{/}">Volver</a>
+    <button onclick="window.location.href='/' " style="background-color: gold; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;"> 
+        Atrás
+      </button>
     <br />
     <form th:action="@{/guardar}" method="POST" th:object="${usuario}">
         <input type="hidden" name="id" th:field="*{id}" />

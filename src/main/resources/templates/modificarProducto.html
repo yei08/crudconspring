@@ -9,7 +9,10 @@
 </head>
 <body>
     <h1>agregar o modificar Producto</h1>
-    <a href="@{/}">Volver</a>
+    <button onclick="window.location.href='/' " style="background-color: gold; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;"> 
+        Atrás
+      </button>
+    
     <br />
     <form th:action="@{/productos/guardar}" method="POST" th:object="${producto}"> 
         <input type="hidden" name="id" th:field="*{id}" />
