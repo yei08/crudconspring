@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Modificar Producto</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>agregar o modificar Producto</h1>
+    <a href="@{/}">Volver</a>
+    <br />
+    <form th:action="@{/productos/guardar}" method="POST" th:object="${producto}"> 
+        <input type="hidden" name="id" th:field="*{id}" />
+        <br />
+        <label for="nombre">Nombre: </label>
+        <input type="text" name="nombre" th:field="*{nombre}" />
+        <br />
+        <label for="precio">Precio: </label>
+        <input type="text" name="precio" th:field="*{precio}" />
+        <br />
+        <label for="cantidad">Cantidad: </label>
+        <input type="text" name="cantidad" th:field="*{cantidad}" />
+        <br />
+        <label for="fecha_creacion">Fecha de Creación: </label>
+        <input type="date" name="fecha_creacion" th:field="*{fecha_creacion}" />
+        <br />
+        <label for="usuario_id">Usuario ID: </label>
+        <input type="text" name="usuario_id" th:field="*{usuario_id}" />
+        <br />
+        <input type="reset" value="LIMPIAR" /> &nbsp;&nbsp;&nbsp;
+        <input type="submit" name="guardar" value="Guardar">
+        <br>
+    </form>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+    <title>Lista de Productos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <h1>Lista de Productos</h1>
+    <hr>
+
+    <a th:href="@{/productos/agregar}" class="btn">Agregar Producto</a> 
+    <div th:if="${Productos != null and !Productos.empty}"> 
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>NOMBRE</th>
+                <th>PRECIO</th>
+                <th>CANTIDAD</th>
+                <th>FECHA DE CREACIÓN</th>
+                <th>USUARIO ID</th>
+                <th>EDITAR</th>
+                <th>ELIMINAR</th>
+            </tr>
+            <tr th:each="p : ${Productos}"> 
+                <td th:text="${p.id}"></td>
+                <td th:text="${p.nombre}"></td>
+                <td th:text="${p.precio}"></td>
+                <td th:text="${p.cantidad}"></td> 1 
+                <td th:text="${p.fecha_creacion}"></td>
+                <td th:text="${p.usuario_id}"></td>
+
+                <td><a th:href="@{/productos/editar/}+${p.id}" th:text="EDITAR"></a></td>
+                <td><a th:href="@{/productos/eliminar/}+${p.id}" th:text="ELIMINAR"></a></td>
+            </tr>
+        </table>
+    </div>
+    <div th:if="${Productos == null or Productos.empty}"> 
+        La lista de productos está vacía
+    </div>
+
+</body>
+
+</html>

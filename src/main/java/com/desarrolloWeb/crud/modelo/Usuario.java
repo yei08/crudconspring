@@ -19,22 +19,23 @@ import lombok.Data;
  * @author JEIFER ALCALA
  */
 @Entity
-@Table(name = "usuarios")
+@Table(name = "usuarios", catalog = "crudconspring")
 @Data
 public class Usuario implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private String password;
     private String nombre;
     private String apellidos;
     private String rol;
+    
     private String email;
     private String telefono;
     private String estado;
     @CreationTimestamp
     private String fecha_registro;
-    
-    
+
 }
