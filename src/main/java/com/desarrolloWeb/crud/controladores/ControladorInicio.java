@@ -30,6 +30,7 @@ public class ControladorInicio {
      IUsuarioServicio userServicio;
     @GetMapping("/")
     public String inicio(Model modelo) {
+        
         // List<Usuario> listaUsuarios = (List<Usuario>) iUsuarioCrud.findAll();
         List<Usuario> listaUsuarios = (List<Usuario>) userServicio.listarUsuarios();
         modelo.addAttribute("usuarios", listaUsuarios);
