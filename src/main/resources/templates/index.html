@@ -13,6 +13,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     <body>
         <h1>Lista de Usuarios</h1>
         <hr>
+        <!-- el boton para generear pdf -->
+        <div style="margin-left: 1000px; margin-right: 2000px;">
+            <a href="?format=pdf" title="Exportar a PDF">
+                <img src="/images/icon-pdf.png" alt="Descargar PDF" /> 
+              </a>
+           </div>
+        
         <div th:if="${usuarios != null and !usuarios.empty}">
             <table border="1">
                 <tr>
@@ -53,4 +60,5 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <button onclick="window.location.href='/productos/agregar'" style="background-color: gold; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;">Agregar Producto</button>
         
         <button onclick="window.location.href='/productos'" style="background-color: gold; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;">Lista de Productos</button>    </body>
+       
 </html>

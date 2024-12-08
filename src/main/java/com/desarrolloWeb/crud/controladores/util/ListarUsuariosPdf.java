@@ -23,7 +23,9 @@ public class ListarUsuariosPdf extends AbstractPdfView {
             HttpServletRequest request, HttpServletResponse response) {
                 @SuppressWarnings("unchecked")
         List<Usuario> listaUsuarios = (List<Usuario>) model.get("usuarios");
+
         // throw new UnsupportedOperationException("Unimplemented method'buildPdfDocument'");
+
          PdfPTable tablaUsuarios = new PdfPTable(8);
         // SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy"); 
         listaUsuarios.forEach(Usuario -> {
