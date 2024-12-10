@@ -12,6 +12,13 @@
     <hr>
 
     <button onclick="window.location.href='/productos/agregar'" style="background-color: gold; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px;">Agregar Producto</button>
+    
+    <div style="margin-left: 685px; margin-right: 100px;">
+        <a href="?format=pdf" title="Exportar a PDF">
+            <img src="/images/icon-pdf.png" alt="Descargar PDF" /> 
+          </a>
+       </div>
+
     <div th:if="${Productos != null and !Productos.empty}"> 
         <table border="1">
             <tr>
