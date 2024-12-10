@@ -45,7 +45,7 @@ public class ListarProductoPdf extends AbstractPdfView {
         celda.setPadding(18);
 
          PdfPTable tablaProductos = new PdfPTable(5);
-         tablaProductos.setWidths(new float[] { 1f, 3f, 2.7f, 2.1f, 1f });
+         tablaProductos.setWidths(new float[] { 1f, 3f, 2.7f, 1.7f, 1.5f });
          tablaTitulo.addCell(celda);
 
          celda = new PdfPCell(new Phrase("ID"));
